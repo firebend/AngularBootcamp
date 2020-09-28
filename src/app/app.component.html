@@ -375,9 +375,19 @@
       </g>
     </svg>
 
-    <span
-      ><app-click-me [displayString]="title + ' Click Me'"></app-click-me
+    <span *ngIf="showClickMe">
+      <app-click-me [displayString]="title + ' Click Me'"></app-click-me
     ></span>
+
+    <span>
+      <label
+        ><input
+          type="checkbox"
+          [checked]="showClickMe"
+          (change)="showClickMe = !showClickMe"
+        />Show Click Me</label
+      ></span
+    >
 
     <svg
       id="rocket-smoke"
