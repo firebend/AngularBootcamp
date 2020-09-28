@@ -375,10 +375,6 @@
       </g>
     </svg>
 
-    <span *ngIf="showClickMe">
-      <app-click-me [displayString]="title + ' Click Me'"></app-click-me
-    ></span>
-
     <span>
       <label
         ><input
@@ -388,6 +384,8 @@
         />Show Click Me</label
       ></span
     >
+
+    <span>Total Clicks: {{ totalClicks }} </span>
 
     <svg
       id="rocket-smoke"
@@ -405,6 +403,18 @@
         fill="#f5f5f5"
       />
     </svg>
+  </div>
+
+  <div class="card-container" *ngIf="showClickMe">
+    <div class="card">
+      <span>
+        <app-click-me [displayString]="title + ' Click Me'"></app-click-me
+      ></span>
+    </div>
+
+    <div class="card" *ngIf="showClickMe">
+      <span><app-click-me displayString="Or Click Me"></app-click-me></span>
+    </div>
   </div>
 
   <!-- Resources -->

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TotalClicksService } from './total-clicks.service';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'CodeBootcamp';
   showClickMe = false;
+  get totalClicks(): number {
+    return this._totalClicksService.totalClicks;
+  }
+
+  constructor(private readonly _totalClicksService: TotalClicksService) {}
 }

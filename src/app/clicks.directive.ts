@@ -1,7 +1,9 @@
 import { Directive, EventEmitter, HostListener, Output } from '@angular/core';
+import { TotalClicksService } from './total-clicks.service';
 
 @Directive({
-  selector: '[appClicks]'
+  selector: '[appClicks]',
+  // providers: [TotalClicksService]
 })
 export class ClicksDirective {
 
@@ -11,7 +13,8 @@ export class ClicksDirective {
   @HostListener('click') click() {
     this._clickCount++;
     this.appClicks.emit(this._clickCount);
+    this._totalClicksService.registerClick();
   }
 
-  constructor() { }
+  constructor(private readonly _totalClicksService: TotalClicksService) { }
 }
