@@ -3,20 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ClicksDirective } from './clicks.directive';
-import { ClickCountPipe } from './click-count.pipe';
-import { ClickMeComponent } from './click-me/click-me.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ClicksDirective,
-    ClickCountPipe,
-    ClickMeComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

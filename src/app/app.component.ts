@@ -9,6 +9,7 @@ import { TotalClicksService } from './total-clicks.service';
 export class AppComponent {
   title = 'CodeBootcamp';
   showClickMe = false;
+
   get totalClicks(): number {
     return this._totalClicksService.totalClicks;
   }

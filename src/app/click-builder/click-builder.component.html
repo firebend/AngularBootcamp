@@ -1,0 +1,23 @@
+<div class="card-container">
+  <div class="card">
+    <span>
+      <input
+        type="text"
+        #newTitle
+        (keydown)="checkAddTitle($event, newTitle)"
+      />
+      <button
+        type="button"
+        (click)="addTitle(newTitle.value); newTitle.value = ''"
+      >
+        Add
+      </button>
+    </span>
+  </div>
+</div>
+
+<div class="card-container">
+  <div class="card" *ngFor="let clickTitle of clickTitles">
+    <span><app-click-me [displayString]="clickTitle"></app-click-me></span>
+  </div>
+</div>
