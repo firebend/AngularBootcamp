@@ -1,4 +1,5 @@
 import { Directive, EventEmitter, HostListener, Output } from '@angular/core';
+import { MessageLogService } from './message-log.service';
 import { TotalClicksService } from './total-clicks.service';
 
 @Directive({

@@ -1,5 +1,5 @@
 <p>
-  <span class="click-me" (appClicks)="clicks = $event">{{
+  <span class="click-me" (appClicks)="clicks = $event" (click)="onClick()">{{
     displayString
   }}</span>
   (<span>{{ clicks | clickCount }}</span

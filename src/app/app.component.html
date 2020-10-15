@@ -425,6 +425,22 @@
 
   <router-outlet></router-outlet>
 
+  <div class="card-container" *ngFor="let level of logs">
+    <div class="card">
+      <span>
+        <h2>{{ level.level }}</h2>
+      </span>
+    </div>
+    <div>
+      <ul class="log" *ngFor="let message of level.messages">
+        <h4>{{ message.timestamp }}</h4>
+        {{
+          message.message
+        }}
+      </ul>
+    </div>
+  </div>
+
   <svg
     id="clouds"
     alt="Gray Clouds Background"

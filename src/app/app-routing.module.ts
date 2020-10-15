@@ -3,7 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [{
   path: 'click-builder',
-  loadChildren: () => import('./click-builder/click-builder.module').then(m => m.ClickBuilderModule)
+  loadChildren: () => import('./click-builder/click-builder.module')
+    .then(m => m.ClickBuilderModule)
 }];
 
 @NgModule({

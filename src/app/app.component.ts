@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { MessageLogService } from './message-log.service';
 import { TotalClicksService } from './total-clicks.service';
+import { LogLevel } from './types/log-level';
+import { ILogMessage } from './types/log-message';
 
 @Component({
   selector: 'app-root',
@@ -14,5 +17,14 @@ export class AppComponent {
     return this._totalClicksService.totalClicks;
   }
 
-  constructor(private readonly _totalClicksService: TotalClicksService) {}
+  get logs(): { level: LogLevel, messages: ILogMessage[] } [] {
+    return [
+      { level: 'Error', messages: this.logger.GetErrors() },
+      { level: 'Warning', messages: this.logger.GetWarnings() },
+      { level: 'Information', messages: this.logger.GetInformation() },
+      { level: 'Debug', messages: this.logger.GetDebugs() }
+    ];
+  }
+
+  constructor(private readonly _totalClicksService: TotalClicksService, private readonly logger: MessageLogService) {}
 }

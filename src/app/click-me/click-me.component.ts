@@ -1,4 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { MessageLogService } from '../message-log.service';
 
 @Component({
   selector: 'app-click-me',
@@ -11,14 +12,17 @@ export class ClickMeComponent implements OnInit, OnDestroy {
 
   clicks: number;
 
-  constructor() { }
+  constructor(private readonly logger: MessageLogService) { }
 
   ngOnInit(): void {
-    console.log('ClickMeComponent initialized');
+    this.logger.Information(`ClickMe ${this.displayString} initialized!`);
   }
 
   ngOnDestroy(): void {
-    console.log('ClickMeComponent destroyed');
+    this.logger.Warning(`ClickMe ${this.displayString} destroyed!`);
   }
 
+  onClick() {
+    this.logger.Debug(`${this.displayString} clicked!`);
+  }
 }
